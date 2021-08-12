@@ -1,6 +1,6 @@
 
 
-export class User   {
+export class Usuario   {
   id = 0;
   cpf = '';
   email = '';

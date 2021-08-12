@@ -54,6 +54,8 @@ namespace DonationServer.Controllers
                 // Oculta a senha
                 user.Senha = null;
 
+                AuthManager.LoggedUsers.AddOrUpdate(user.Id, (us) => token, (k, v1) => { return token; });
+
                 // Retorna os dados
                 return Ok(new UserToken
                 {

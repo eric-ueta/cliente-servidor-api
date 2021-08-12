@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
-import { User } from '../models/user';
+import { Usuario } from '../models/user';
 import { UserAndToken } from '../models/user-and-token';
 
 @Injectable({
@@ -14,15 +14,15 @@ export class AuthenticationService {
 
   constructor(private router: Router, private http: HttpClient) {}
 
-  login(credentials: User): Promise<UserAndToken> {
+  login(credentials: Usuario): Promise<UserAndToken> {
     return this.http
       .post<UserAndToken>(`${this.api}/login`, credentials, {})
       .pipe(
         map((userAndToken: UserAndToken) => {
-          if (userAndToken && userAndToken.user && userAndToken.token) {
+          if (userAndToken && userAndToken.usuario && userAndToken.token) {
             localStorage.setItem('user', JSON.stringify(userAndToken));
 
-            console.log('userAndToken.user', userAndToken.user);
+            console.log('userAndToken', userAndToken);
 
             window.dispatchEvent(new CustomEvent('user:login'));
           }
@@ -33,14 +33,14 @@ export class AuthenticationService {
       .toPromise();
   }
 
-  logout(): void {
-    localStorage.removeItem('user');
+  logout(): Promise<void> {
 
-    this.http
+    return this.http
       .post(`${this.api}/logout`, {})
       .toPromise()
       .then(() => {
         window.dispatchEvent(new CustomEvent('user:logout'));
+        localStorage.removeItem('user');
       })
       .catch(() => {
         window.dispatchEvent(new CustomEvent('user:logout'));

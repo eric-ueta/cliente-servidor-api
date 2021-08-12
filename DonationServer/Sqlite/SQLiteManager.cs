@@ -150,7 +150,7 @@ namespace DonationServer.Sqlite
         {
             try
             {
-                int rows = 0;
+                bool created = false;
 
                 using (var conn = new SqliteConnection(_connectionString))
                 {
@@ -178,7 +178,8 @@ namespace DonationServer.Sqlite
                                 @{nameof(user.Endereco)},
                                 @{nameof(user.Tipo)},
                                 @{nameof(user.TipoDoacao)}
-                            );";
+                            );
+                            SELECT last_insert_rowid();";
 
                         cmd.Parameters.AddWithValue(nameof(user.Nome), user?.Nome ?? "");
                         cmd.Parameters.AddWithValue(nameof(user.Cpf), user?.Cpf ?? "");
@@ -189,13 +190,17 @@ namespace DonationServer.Sqlite
                         cmd.Parameters.AddWithValue(nameof(user.Tipo), user?.Tipo);
                         cmd.Parameters.AddWithValue(nameof(user.TipoDoacao), user?.TipoDoacao ?? "");
 
-                        rows = await cmd.ExecuteNonQueryAsync();
+                        var obj = await cmd.ExecuteScalarAsync();
 
-                        user.Id = 0;
+                        if (obj is int || obj is long)
+                        {
+                            user.Id = Convert.ToInt32(obj);
+                            created = true;
+                        }
                     }
                 }
 
-                return rows > 0
+                return created
                     ? user
                     : null;
             }

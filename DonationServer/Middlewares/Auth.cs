@@ -27,7 +27,7 @@ namespace DonationServer.Middlewares
                     ?? context.HttpContext.Request.Headers["token"].ToString();
 
                 // Verifica se tem um token Caso contrário responde 401
-                if (token is null)
+                if (string.IsNullOrWhiteSpace(token))
                 {
                     context.Result = new UnauthorizedObjectResult(new ErrorResponse("Unauthorized.", 401));
                     return;

@@ -24,6 +24,8 @@ export class RequestInterceptor implements HttpInterceptor {
     const userStored = localStorage.getItem('user');
     let user: UserAndToken;
 
+    console.log(userStored)
+
     if (userStored) {
       user = JSON.parse(userStored);
 

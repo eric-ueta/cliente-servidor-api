@@ -55,11 +55,11 @@ export class ResponseInterceptor implements HttpInterceptor {
               }
               break;
             case 401:
-              this.toast.error('Usuário deslogado.');
+              this.toast.error('Usuário não autenticado.');
 
-              if (this.authentication.isAuthenticated()) {
-                this.authentication.logout();
-              }
+              // if (this.authentication.isAuthenticated()) {
+              //   this.authentication.logout();
+              // }
               break;
             case 403:
               this.toast.warning('Você não tem permissão para fazer isso.');

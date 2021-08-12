@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { User } from 'src/app/models/user';
+import { Usuario } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,11 +9,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  user: User;
+  user: Usuario;
 
   constructor(private userService: UserService,
     private toast: ToastrService) { 
-    this.user = new User();
+    this.user = new Usuario();
   }
 
   ngOnInit(): void {
@@ -21,7 +21,10 @@ export class UserComponent implements OnInit {
 
   saveUser():void {
     this.userService.create(this.user)
-      .then(()=> this.toast.success("Usuário criado com Sucesso"))
-      .catch((error)=> this.toast.error("Error ao criar usuário"));
+      .then((response)=> { 
+        console.log(response);
+        this.toast.success("Usuário criado com Sucesso")})
+      .catch((error)=> {
+      console.log(error);this.toast.error("Error ao criar usuário")});
   }
 }

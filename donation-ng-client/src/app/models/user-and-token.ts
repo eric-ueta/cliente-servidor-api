@@ -1,7 +1,7 @@
 
-import { User } from './user';
+import { Usuario } from './user';
 
 export class UserAndToken {
-  user = new User();
+  usuario = new Usuario();
   token = '';
 }

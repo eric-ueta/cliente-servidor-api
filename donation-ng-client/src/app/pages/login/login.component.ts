@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
-import { User } from 'src/app/models/user';
+import { Usuario } from 'src/app/models/user';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { UserComponent } from '../user/user.component';
@@ -13,7 +13,7 @@ import { UserComponent } from '../user/user.component';
   templateUrl: 'login.component.html',
 })
 export class LoginComponent implements OnInit {
-  public user: User;
+  public user: Usuario;
   invalidCredentials: boolean;
 
   constructor(
@@ -23,13 +23,13 @@ export class LoginComponent implements OnInit {
     private modalService: BsModalService,
   ) {
     this.invalidCredentials = false;
-    this.user = new User();
+    this.user = new Usuario();
   }
 
   ngOnInit(): void {
-    if (this.authentication.isAuthenticated()) {
-      this.authentication.logout();
-    }
+    // if (this.authentication.isAuthenticated()) {
+    //   this.authentication.logout();
+    // }
   }
 
   addNewUser():void{
@@ -42,11 +42,13 @@ export class LoginComponent implements OnInit {
     this.authentication
       .login(this.user)
       .then((response) => {
-        if (this.authentication.isAuthenticated()) {
-          this.router.navigate(['']);
-        }
+        console.log(response);
+
+        this.router.navigate(['/']);
       })
       .catch((e) => {
+        console.log(e);
+
         this.invalidCredentials = true;
         this.toast.error(
           'Verifique seu usuário e senha antes de tentar novamente.'

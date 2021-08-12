@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { User } from '../models/user';
+import { Usuario } from '../models/user';
 
 @Injectable()
 export class UserService {
@@ -9,21 +9,21 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Promise<User[]> {
+  getUsers(): Promise<Usuario[]> {
     let url = `${this.baseUrl}/api/users`;
 
     url = url.replace(/[?&]$/, '');
 
-    return this.http.get<User[]>(url, {}).toPromise();
+    return this.http.get<Usuario[]>(url, {}).toPromise();
   }
 
-  update(user: User): Promise<void> {
+  update(user: Usuario): Promise<void> {
     const url = `${this.baseUrl}/api/users/${user.id}/update`;
 
     return this.http.put<void>(url, user, {}).toPromise();
   }
 
-  create(user: User): Promise<void> {
+  create(user: Usuario): Promise<void> {
     const url = `${this.baseUrl}/usuarios`;
 
     return this.http.post<void>(url, user, {}).toPromise();
