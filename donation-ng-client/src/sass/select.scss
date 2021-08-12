@@ -1,0 +1,50 @@
+@import './variables.scss';
+
+.select-content {
+    flex-shrink: 1;
+
+    span {
+        font-size: $font-size;
+        color: #000;
+        font-weight: bold;
+        text-transform: capitalize;
+        margin: 0;
+    }
+
+    > [b] {
+        background-color: $primary-background-color;
+        border-radius: $border-radius;
+    }
+
+    > [c] {
+        flex-direction: row;
+        align-items: center;
+        padding: 2px;
+        
+        > .select-btn {
+            flex-shrink: 1;
+
+            > [b] { }
+
+            > [c] {
+                justify-content: center;
+                align-content: center;
+                padding: 8px;
+            }
+        }
+        
+        > .select-menu {
+            flex-grow: 1;
+            border: none;
+            margin-left: 5px;
+
+            > [b] {
+                background-color: $primary-background-color;
+            }
+
+            > [c] {
+               
+            }
+        }
+    }
+}

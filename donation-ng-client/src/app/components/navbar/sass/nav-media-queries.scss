@@ -1,0 +1,195 @@
+:host {
+    //MEDIA QUERIES
+    @media only screen and (max-width: 1265px) {
+        > .navbar-mine {
+            > [c] {
+                > .bar-left {
+                    > [c] {
+                        > .icon-content {
+                            > div[c] {
+                                padding: 2px 5px;
+    
+                                > span {
+                                    display: none;  
+                                }
+                            }
+                        }
+                    }
+                }
+
+                > .bar-right {
+                    > [c] {
+                        > .search-content {
+                            > [c] {
+                                > .search[class$='dark'] {
+                                    cursor: pointer;
+                
+                                    &:focus-within, &:focus, &:active, &:hover {
+                                        > div[c] {
+                                            input {
+                                                display: flex;
+                                            }
+                                        }
+                                    }
+
+                                    > [c] {
+                                        > input[type="text"] {
+                                            display: none;  
+                                            top: 100%;
+                                            position: absolute;
+                                            z-index: 1000;
+                                            background-color: #464646;
+                                            padding: 0 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        > .user {
+                            > [c] {
+                                > .select-content {
+                                    cursor: pointer;
+
+                                    &:focus-within, &:focus, &:active, &:hover {
+                                        > [c] {
+                                            .head {
+                                                display: none;
+                                            }
+
+                                            .select-menu.menu, .body {
+                                                display: flex;
+                                            }
+                                        }
+                                    }
+
+                                    > [c] {
+                                        > .select-menu {   
+                                            display: none;
+                                            top: 100%;
+                                            right: 0;
+                                            position: absolute;
+                                            z-index: 1000;
+                                            background-color: #464646;
+                                            padding: 0 5px;
+                                        }
+                            
+                                        > .select-btn > div[c] {
+                                            padding: unset;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 939px) {
+        > .navbar-mine {
+            &[class$="navbar-mine"] {
+                > [c]  {
+                    > .bar-left {
+                        > [c] {
+                            > .menu {
+                                &:hover {
+                                > [c] > .item > [c] > .body {
+                                        display: flex;
+                                    }
+                                }
+
+                                > [c] {
+                                    .item {
+                                        &:nth-child(2) {
+                                            flex-grow: 1;
+                                            align-items: stretch;
+
+                                            > [c] {
+                                                > .head {
+                                                    flex-grow: 1;
+
+                                                    > [c] {
+                                                        align-self: center;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        > [c] {
+                                            line-height: 2;
+                                        }
+                                    }
+
+                                    > .item {
+                                        > div[c] {
+                                            > .head {
+                                                display: flex;
+                                            }
+                        
+                                            > .body {
+                                                display: none;
+                                                position: absolute;
+                                                top: 100%;
+                                                z-index: 1000;
+                                                min-width: 100%;
+                                                left: 0;
+                        
+                                                > [b] {
+                                                    background-color: $nav-background-color;
+                                                    box-shadow: 0.1em 0.1em #b2b2b2;
+                                                    border-bottom-right-radius: $border-radius * 2;
+                                                    border-bottom-left-radius: $border-radius;
+                                                }
+                        
+                                                > [c] {
+                                                    flex-direction: column;
+                        
+                                                    > .item {
+                                                        align-items: flex-start;
+                        
+                                                        > div[c] {
+                                                            padding: 6px 15px 6px 12px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    > .bar-right {
+                        margin-left: 5px;
+                        flex-shrink: 1;
+                        flex-grow: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    //MOBILE
+    @media only screen and (max-width: 728px) {
+        > .navbar-mine {
+            > [c]  {
+                > .bar-left {
+                    > [c] {
+                        > .menu {
+                            > [c] {
+                                // > .item:first-child {
+                                //     display: none;
+                                // }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //END MOBILE
+}

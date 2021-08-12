@@ -1,0 +1,64 @@
+<div [ngClass]="vertical ? 'navbar-mine vertical' : 'navbar-mine'" p>
+  <div b></div>
+  <div c>
+    <div class="bar-left" p>
+      <div b></div>
+      <div c>
+        <div class="icon-content" p>
+          <div b></div>
+          <a c href="">
+            <img src="../../../assets/img/logo-iris.png" alt="Icone Donation" />
+            <span>Donation</span>
+          </a>
+        </div>
+        <div class="menu horizontal" p>
+          <div b></div>
+          <ul c>
+            <li class="item" p>
+              <div c>
+                <button class="head" p>
+                  <div b></div>
+                  <div c>
+                    <i class="bi bi-justify"></i>
+                    <span>Menu</span>
+                  </div>
+                </button>
+                <div class="body" p>
+                  <div b></div>
+                  <ul c>
+                    <li
+                      class="item"
+                      [ngClass]="selected == 0 ? 'selected' : ''"
+                      p
+                    >
+                      <div c>
+                        <a p href="">
+                          <div b></div>
+                          <div c>
+                            <i class="bi bi-house-fill"></i>
+                            <span>Home</span>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bar-right" p>
+      <div b></div>
+      <div c>
+        <div class="actions" p>
+          <div b></div>
+          <div (click)="logout()" c>
+            <i class="bi bi-power" title="Logout - Sair"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+/**
+* @params:  {Color}
+*           {Number} percentage
+*           {Number} percentage
+*
+* @returns: {Color}
+**/
+@function highlight($color, $amount, $threshold: 50%) {
+
+    @if (lightness($color) > $threshold) {
+        @return darken($color, $amount);
+    }
+
+    @if (lightness($color) <= $threshold) {
+        @return lighten($color, $amount);
+    }
+
+    @return $color;
+}

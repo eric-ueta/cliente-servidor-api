@@ -10,13 +10,15 @@ import { UserAndToken } from '../models/user-and-token';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private api = environment.API.BASE_URL;
-
   constructor(private router: Router, private http: HttpClient) {}
 
   login(credentials: Usuario): Promise<UserAndToken> {
     return this.http
-      .post<UserAndToken>(`${this.api}/login`, credentials, {})
+      .post<UserAndToken>(
+        `${localStorage.getItem('server')}/login`,
+        credentials,
+        {}
+      )
       .pipe(
         map((userAndToken: UserAndToken) => {
           if (userAndToken && userAndToken.usuario && userAndToken.token) {
@@ -34,9 +36,8 @@ export class AuthenticationService {
   }
 
   logout(): Promise<void> {
-
     return this.http
-      .post(`${this.api}/logout`, {})
+      .post(`${localStorage.getItem('server')}/logout`, {})
       .toPromise()
       .then(() => {
         window.dispatchEvent(new CustomEvent('user:logout'));

@@ -15,13 +15,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-  ],
+  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -38,16 +35,19 @@ import { HomeComponent } from './pages/home/home.component';
       closeButton: true,
     }),
   ],
-  providers: [UserService,{
-    provide: HTTP_INTERCEPTORS,
-    useClass: RequestInterceptor,
-    multi: true,
-  },
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: ResponseInterceptor,
-    multi: true,
-  },],
-  bootstrap: [AppComponent]
+  providers: [
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResponseInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

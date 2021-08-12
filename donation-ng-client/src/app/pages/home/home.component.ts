@@ -5,20 +5,19 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
 
-  constructor(private authService: AuthenticationService,
-    private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   logout(): void {
-    this.authService.logout().finally(()=> {
-      this.router.navigate(['/login']);})
-    
-
+    this.authService.logout().finally(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

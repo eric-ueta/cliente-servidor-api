@@ -4,7 +4,6 @@
     <input
       type="text"
       class="form-control col-md-2"
-      
       placeholder="cpf"
       [class.is-invalid]="!user.cpf"
       [(ngModel)]="user.cpf"
@@ -16,7 +15,6 @@
     <input
       type="text"
       class="form-control col-md-2"
-      
       placeholder="Senha"
       [class.is-invalid]="!user.senha"
       [(ngModel)]="user.senha"
@@ -28,7 +26,6 @@
     <input
       type="text"
       class="form-control col-md-2"
-      
       placeholder="Nome"
       [class.is-invalid]="!user.nome"
       [(ngModel)]="user.nome"
@@ -40,7 +37,6 @@
     <input
       type="text"
       class="form-control col-md-2"
-      
       placeholder="email"
       [class.is-invalid]="!user.email"
       [(ngModel)]="user.email"
@@ -52,7 +48,6 @@
     <input
       type="text"
       class="form-control col-md-2"
-      
       placeholder="endereco"
       [class.is-invalid]="!user.endereco"
       [(ngModel)]="user.endereco"
@@ -64,7 +59,6 @@
     <input
       type="text"
       class="form-control col-md-2"
-      
       placeholder="Telefone"
       [class.is-invalid]="!user.telefone"
       [(ngModel)]="user.telefone"
@@ -73,48 +67,39 @@
   </div>
 
   <div class="form-group row">
-    <label class="col-md-12 col-form-label" for="text-input">Tipo de Usuário</label>
+    <label class="col-md-12 col-form-label" for="text-input"
+      >Tipo de Usuário</label
+    >
     <select
       class="col-md-12 form-select browser-default custom-select"
       [(ngModel)]="user.tipo"
       name="tipo"
       required
     >
-      <option [ngValue]="0"
-      selected>
-        Doador
-      </option>
-      <option [ngValue]="0"
-      >
-        Receptor
-      </option>
+      <option [ngValue]="0" selected>Doador</option>
+      <option [ngValue]="1">Receptor</option>
     </select>
   </div>
-  
+
   <div class="form-group row">
-    <label class="col-md-12 col-form-label" for="text-input">Tipo de Doação</label>
+    <label class="col-md-12 col-form-label" for="text-input"
+      >Tipo de Doação</label
+    >
     <select
       class="col-md-12 form-select browser-default custom-select"
-      [(ngModel)]="user.tipo_doacao"
+      [(ngModel)]="selectedDonations"
       name="tipo_doacao"
       required
       multiple
     >
-      <option [ngValue]="'Roupa'"
-      >
-        Roupa
-      </option>
-      <option [ngValue]="'Remedio'"
-      >
-        Remedio
-      </option>
-      <option [ngValue]="'Cesta'"
-      >
-        Cesta
-      </option>
+      <option [ngValue]="'Roupa'">Roupa</option>
+      <option [ngValue]="'Remedio'">Remedio</option>
+      <option [ngValue]="'Cesta'">Cesta</option>
     </select>
   </div>
   <div class="form-group row mt-4">
-    <button type="button" (click)="saveUser()" class="btn btn-success">Salvar</button>
+    <button type="button" (click)="saveUser()" class="btn btn-success">
+      Salvar
+    </button>
   </div>
 </form>

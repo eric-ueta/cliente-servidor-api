@@ -4,9 +4,6 @@
 
 export const environment = {
   production: false,
-  API: {
-    BASE_URL: 'http://192.168.50.194:5000',
-  },
 };
 
 /*

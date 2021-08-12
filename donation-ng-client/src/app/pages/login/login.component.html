@@ -1,6 +1,10 @@
 <div class="app-body h-100 w-100">
   <main class="main d-flex row col-md-12 h-100 w-100">
-    <img class="robot-float fadeIn" src="../../../assets/img/robot2t.png" alt="" />
+    <img
+      class="robot-float fadeIn"
+      src="../../../assets/img/robot2t.png"
+      alt=""
+    />
     <div class="login-content h-100">
       <div class="card-group">
         <div class="card">
@@ -13,6 +17,23 @@
                 fill="black"
               />
               <div class="login-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bd-iris-secondary">
+                      <i class="bi bi-server"></i>
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Servidor"
+                    name="server"
+                    [(ngModel)]="server"
+                    (input)="setServer($event)"
+                    [ngClass]="{ 'red-border-class': invalidCredentials }"
+                    required
+                  />
+                </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text bd-iris-secondary">
@@ -58,7 +79,18 @@
                 </div>
               </div>
               <div class="aling-center text-center">
-                <button (click)="addNewUser()" style="border: none; background: none; text-align: center; text-decoration: underline; cursor: pointer;">Cadastrar Usuário</button>
+                <button
+                  (click)="addNewUser()"
+                  style="
+                    border: none;
+                    background: none;
+                    text-align: center;
+                    text-decoration: underline;
+                    cursor: pointer;
+                  "
+                >
+                  Cadastrar Usuário
+                </button>
               </div>
             </form>
           </div>

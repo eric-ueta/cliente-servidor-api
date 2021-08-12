@@ -1,0 +1,88 @@
+@import './variables.scss';
+
+.card {
+    &:hover {
+        & > [b] {
+            border: 3px solid #1885fd;
+        }
+    }
+
+    > [b] { 
+        background-color: #fff;
+        border-radius: $border-radius;
+    }
+
+    > [c] {
+        flex-direction: row;
+        line-height: calc(#{ $line-height } + 0.5em);
+
+        .card-icon {
+
+            > [b] {
+                border-radius: $border-radius;
+                margin: 2px;
+            }
+
+            > [c] {
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+            }
+        }
+        
+        .card-info {
+            > [b] { }
+
+            > [c] {
+                flex-direction: column;
+                padding: 10px;
+            }
+        }
+
+        .card-select {
+            flex-grow: 1;
+            align-items: flex-end;
+            justify-content: flex-start;
+
+            > [b] {
+                border-radius: $border-radius;
+            }
+
+            > [c] {
+                height: 35px;    
+                padding-right: 10px;
+                padding-top: 10px;
+                
+                .menu {
+
+                    > [b] {
+                        border-radius: $border-radius;
+                    }
+
+                    > [c]  {
+                        > .item {
+                            > [c] {
+                                > .head {
+                                    > [c] {
+                                        color: #fff;
+                                        text-transform: uppercase;
+                                        padding: 2px 5px 2px 15px;
+                                        
+                                        i {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+    
+                                > .body {
+                                    right: 0;
+                                    left: unset;
+                                }
+                            }
+                        }
+                    }   
+                }
+            }
+        }
+    }
+}

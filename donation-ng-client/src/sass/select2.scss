@@ -1,0 +1,179 @@
+@import './variables.scss';
+@import './functions.scss';
+
+$search-input-height: 25px;
+$search-padding: 5px;
+
+.select2-content {
+    flex-shrink: 1;
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 0.3em;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: $border-radius;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #ee9900; 
+        border-radius: $border-radius;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: highlight(#ee9900, 20%); 
+    }
+
+    span {
+        font-size: $font-size;
+        color: #000;
+        font-weight: bold;
+        text-transform: capitalize;
+        margin: 0;
+    }
+
+    > [b] {
+        background-color: $primary-background-color;
+        border-radius: calc(#{ $border-radius } + 0.2em);
+    }
+
+    > [c] {
+        flex-direction: row;
+        align-items: center;
+        // padding: 2px;
+        
+        > .select2-btn {
+            flex-shrink: 1;
+            margin-right: 5px;
+
+            > [b] { }
+
+            > [c] {
+                justify-content: center;
+                align-content: center;
+                padding: 8px;
+            }
+        }
+        
+        > .select2-menu {
+            flex-grow: 1;
+            border: none;
+            // margin-left: 5px;
+
+            > [b] {
+                background-color: $primary-background-color;
+            }
+
+            > [c] {
+                > .item {
+                    > [c] {
+                        > .head {
+                            > [b] {
+                                // background-color: #c5c5c5;
+                            }
+        
+                            > [c] {
+                                span {
+                                    text-transform: unset;
+                                }
+                            }
+                        }
+        
+                        > .body-content {
+                            display: none;
+                            position: absolute;
+                            width: max-content;
+                            max-width: max-content;
+                            min-width: 100%;
+                            z-index: 100;
+                            top: 100%;
+                            left: 0;
+
+                            > [b] {
+                                box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 
+                                            0px 8px 10px 1px rgba(0, 0, 0, 0.14), 
+                                            0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+                             }
+            
+                            > [c] {
+                                .search-content {
+                                    // position: absolute;
+                                    // min-width: 100%;
+                                    // z-index: 100;
+                                    // top: 100%;
+                                    // left: 0;
+
+                                    > [b] {
+                                        background-color: $secundary-background-color;
+                                        box-shadow: unset;
+                                    }
+
+                                    > [c] {
+                                        padding: $search-padding;
+        
+                                        > .search {
+                                            > [b] {
+                                                background-color: $primary-background-color;
+                                            }
+
+                                            > [c] {
+                                                > i {
+                                                    font-size: 1.1em;
+                                                }
+        
+                                                > input[type=text] {
+                                                    height: $search-input-height;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+        
+                                > .body {
+                                    display: flex;
+                                    // top: calc(100% + #{ $search-input-height } + (#{ $search-padding } * 2));
+
+                                    > [b] { 
+                                        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 
+                                            0px 8px 10px 1px rgba(0, 0, 0, 0.14), 
+                                            0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+                                    }
+                
+                                    > [c] {
+                                        overflow: auto;
+                                        max-height: 400px;
+
+                                        > .item {
+                                            &:hover {
+                                                > [b] {
+                                                    background-color: highlight($background-color, 40%); 
+                                                }
+                                            }
+                    
+                                            > [b] { }
+                    
+                                            > [c] {
+                                                justify-content: center;
+                                                padding: 6px 15px 6px 12px;
+                    
+                                                .body {
+                                                    top: 0;
+                                                    left: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,12 +5,10 @@ import { Usuario } from '../models/user';
 
 @Injectable()
 export class UserService {
-  private baseUrl: string = environment.API.BASE_URL;
-
   constructor(private http: HttpClient) {}
 
   getUsers(): Promise<Usuario[]> {
-    let url = `${this.baseUrl}/api/users`;
+    let url = `${localStorage.getItem('server')}/api/users`;
 
     url = url.replace(/[?&]$/, '');
 
@@ -18,19 +16,19 @@ export class UserService {
   }
 
   update(user: Usuario): Promise<void> {
-    const url = `${this.baseUrl}/api/users/${user.id}/update`;
+    const url = `${localStorage.getItem('server')}/api/users/${user.id}/update`;
 
     return this.http.put<void>(url, user, {}).toPromise();
   }
 
   create(user: Usuario): Promise<void> {
-    const url = `${this.baseUrl}/usuarios`;
+    const url = `${localStorage.getItem('server')}/usuarios`;
 
     return this.http.post<void>(url, user, {}).toPromise();
   }
 
   delete(userId: number): Promise<void> {
-    const url = `${this.baseUrl}/api/users/${userId}/delete`;
+    const url = `${localStorage.getItem('server')}/api/users/${userId}/delete`;
 
     return this.http.delete<void>(url, {}).toPromise();
   }

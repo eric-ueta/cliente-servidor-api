@@ -1,0 +1,192 @@
+@import './variables.scss';
+@import './functions.scss';
+
+$background-color: $primary-background-color;
+
+.menu {
+    flex-grow: 1;
+    height: auto; 
+    max-height: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &[class$='horizontal'] {
+        max-height: $nav-max-height;
+
+        > [c] {
+            flex-direction: row;    
+    
+            > .item {
+                flex-shrink: 1;
+                justify-content: flex-start;
+                align-self: stretch;
+                align-items: center;
+
+                > [c] {
+                    justify-content: center;
+
+                    .body {
+                        > [c] {
+                            // padding: 2px 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    :focus-within {
+        // > .item > [c] > .head > div[c] > i {
+            
+        //     // &:nth-last-of-type(1) {
+        //     //     display: flex;
+        //     // }
+
+        //     // &:nth-last-of-type(2) {
+        //     //     display: none;
+        //     // }
+
+        //     transition: 0.6s all;
+        //     transform: rotate(180deg);
+        // }
+
+        // .item[p] > div[c] > .body-content[p] > div[c] > .body[p]
+        //     , > .item[p] > [c] > .body[p] {
+        //         display: flex;
+        // }
+    }
+
+    button {
+        background-color: transparent;
+    }
+
+    ul, li {
+        margin: 0;
+        padding: 0;
+        height: auto;
+        width: auto;
+        // max-height: $nav-max-height;
+        display: flex;
+        align-self: stretch;
+    }
+
+    li {
+        line-height: 1.5;
+    }
+
+    > [b] {
+        background-color: $background-color;
+    }
+
+    > [c] {
+
+        .item {
+            cursor: pointer;
+
+            > [c] {
+                .head {
+                    outline: none;
+    
+                    &:hover {
+                        > [b] { 
+                            background-color: highlight($background-color, 40%); 
+                        }
+                    }
+    
+                    > [b] {
+                        background-color: highlight($background-color, 25%);
+                        border-radius: $border-radius;
+                    }
+                        
+                    > [c] {
+                        padding: 5px 2px 5px 5px;
+                        flex-direction: row;
+                        justify-content: stretch;
+                        align-items: center;
+                        max-height: -webkit-fill-available;
+    
+                        i {
+                            transition: 0.6s all;
+                            transform: rotate(360deg);
+                            margin-left: auto;
+                            justify-self: flex-end;
+                            opacity: 0.5;
+                        }
+    
+                        // > i:nth-last-child(1) {
+                        //     display: none;
+                        // }
+                    }
+                }
+        
+                .body {
+                    display: none;
+                    position: absolute;
+                    width: max-content;
+                    max-width: max-content;
+                    min-width: 100%;
+                    z-index: 100;
+                    top: 100%;
+                    left: 0;
+    
+                    > [b] {
+                        background-color: $primary-border-color;
+                        box-shadow: 0.1em 0.1em #b2b2b2;
+                        //  0.2em 0.2em #c3c3c3;
+                        border-bottom-right-radius: $border-radius * 2;
+                        border-bottom-left-radius: $border-radius;
+                    }
+    
+                    > [c] {
+                        > :not(:first-child) {
+                            // margin-top: 10px;
+                        }
+    
+                        > .item {
+                            &:hover {
+                                > [b] {
+                                    background-color: highlight($background-color, 40%); 
+                                }
+                            }
+    
+                            > [b] { }
+    
+                            > [c] {
+                                justify-content: center;
+                                padding: 6px 15px 6px 12px;
+    
+                                .body {
+                                    top: 0;
+                                    left: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+* @params:  {Color}
+**/
+@function changeBackgroundColor($color){
+    $background-color: $color;
+
+    // .menu {
+    //     > [b] {
+    //         background-color: $background-color;
+    //     }
+    // }
+
+
+    // .menu > [c] > .item > .head {
+    //     &:hover {
+    //         background-color: highlight($background-color, 20%);
+    //     }
+    // }
+
+    @return $color;
+}

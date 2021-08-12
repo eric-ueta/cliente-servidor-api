@@ -1,0 +1,191 @@
+:host {
+  //VISÃO VERTICAL DO MENU SUPERIOR
+  > .navbar-mine[class$="vertical"] {
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+
+    > [c] {
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: center;
+
+      > .bar-left {
+        align-self: stretch;
+
+        > [c] {
+          > .icon-content {
+            align-items: center;
+
+            > [c] {
+              padding: 0.55em 1px;
+
+              > img {
+                width: 40px;
+                height: 30px;
+              }
+
+              span {
+                display: none;
+              }
+            }
+          }
+
+          > .menu {
+            max-height: unset;
+            // margin-top: 0.8em;
+
+            > [c] {
+              flex-direction: column;
+
+              > .item {
+                > [c] {
+                  align-self: stretch;
+                  align-items: center;
+
+                  > .body {
+                    align-self: stretch;
+                    width: unset;
+
+                    > [c] {
+                      flex-direction: column;
+
+                      .item:hover {
+                        > [c] {
+                          > [p] > [c] > span {
+                            position: absolute;
+                            padding: 12px 10px 12px 5px;
+                            display: inline-flex;
+                            left: 100%;
+                            top: 0;
+                            line-height: 1.2;
+                            z-index: 1000;
+                            background-color: #5d5d5d;
+                            border-bottom: 4px solid #ee9900;
+                          }
+                        }
+                      }
+
+                      > .item {
+                        > [c] {
+                          padding: unset;
+
+                          > a > [c] {
+                            padding: 10px 0;
+
+                            > span {
+                              display: none;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > .bar-right {
+        align-self: stretch;
+        flex-shrink: 1;
+        flex-grow: 0;
+
+        > [b] {
+        }
+
+        > [c] {
+          padding-bottom: 20px;
+          flex-direction: column-reverse;
+
+          > .search-content {
+            display: none;
+
+            > [c] {
+              > .search {
+                > [b] {
+                }
+
+                > [c] {
+                }
+              }
+            }
+          }
+
+          > .actions {
+            > [b] {
+            }
+
+            > [c] {
+              flex-direction: column;
+
+              :not(:nth-child(1)) {
+                margin: 0;
+                margin-top: 5px;
+              }
+
+              > i {
+                cursor: pointer;
+                color: red;
+              }
+            }
+          }
+
+          > .user {
+            align-self: stretch;
+
+            > [b] {
+            }
+
+            > [c] {
+              padding: unset;
+
+              > .select-content {
+                margin-bottom: 10px;
+                cursor: pointer;
+
+                &:focus-within,
+                &:focus,
+                &:active,
+                &:hover {
+                  > [c] {
+                    .head {
+                      display: none;
+                    }
+
+                    .select-menu.menu,
+                    .select-menu.menu > [c] > .item > [c] > .body[p] {
+                      display: flex;
+                      bottom: 100%;
+                      left: 0;
+                      right: unset;
+                      top: unset;
+                    }
+                  }
+                }
+
+                > [b] {
+                }
+
+                > [c] {
+                  > .select-btn {
+                    > [c] {
+                      padding: unset;
+                    }
+                  }
+
+                  > .select-menu {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //END VISÃO VERTICAL DO MENU SUPERIOR
+}

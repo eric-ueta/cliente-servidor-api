@@ -1,0 +1,148 @@
+// :host {
+//     //MOBILE
+//     @media only screen and (max-width: 728px) {
+//         > .painel {
+//             > [c] {
+
+//                 > .content {
+//                     > div[c] {
+//                         flex-direction: column;
+
+//                         > .content-left {
+//                             > [c] {
+                                
+//                                 > .os-header {
+//                                     > div[c] { 
+//                                         flex-direction: column;
+//                                         padding: 10px 0px;
+
+//                                         > .os-title {
+//                                             margin-bottom: 10px;
+
+//                                             > [c] {
+//                                                 align-items: center;
+//                                             }
+//                                         }
+
+//                                         > .os-actions {
+//                                             > [c] {
+//                                                 > .os-order-by-content, > .os-layout , > .os-options{
+//                                                     margin-left: 5px;
+//                                                 }
+//                                             }
+//                                         }
+//                                     }
+//                                 }
+                                
+//                                 > .os-content {
+//                                     > [b] {
+//                                         border: unset;
+//                                     }
+
+//                                     > div[c] {
+//                                         flex-direction: column;
+
+//                                         > .os-content-left {
+//                                             > [c] {
+//                                                 > .os-info {
+//                                                     :focus-within {
+
+//                                                         & > .item > [c] > .body[p] {
+//                                                                 display: flex;
+//                                                         }
+//                                                     }
+
+//                                                     > [c] {
+//                                                         > .item {
+//                                                             > [c] {
+//                                                                 > .head {
+//                                                                     display: flex;
+        
+//                                                                     > [c] { 
+//                                                                         justify-content: center;
+//                                                                         text-transform: capitalize;
+        
+//                                                                         > i {
+//                                                                             margin: unset;
+//                                                                         }
+        
+//                                                                         > i:nth-child(2) {
+//                                                                             display: none;
+//                                                                         }
+        
+//                                                                         > i:first-child, > i:nth-child(2) {
+//                                                                             margin-right: auto;
+//                                                                         }
+        
+//                                                                         > i:nth-last-child(1), i:nth-last-child(2) {
+//                                                                             margin-left: auto;
+//                                                                         }
+//                                                                     }
+//                                                                 }
+        
+//                                                                 .body {
+//                                                                     display: none;
+//                                                                 }
+//                                                             }
+//                                                         }
+//                                                     }
+//                                                 }
+//                                             }
+//                                         }
+
+//                                         > .os-content-right {
+//                                             > [b] {
+//                                                 border: unset;
+//                                             }
+
+//                                             > [c] {
+//                                                 > .card {
+//                                                     > [c] {
+//                                                         > .card-icon {
+//                                                             width: 15px;
+
+//                                                             > [c] {
+//                                                                 display: none;
+//                                                             }
+//                                                         }
+
+//                                                         > .card-select {
+//                                                             > [c] {
+//                                                                 > .menu {
+//                                                                     max-height: 30px;
+
+//                                                                     > [c] {
+//                                                                         > .item {
+//                                                                             > [c] {
+//                                                                                 > .head {
+//                                                                                     max-height: 30px;
+        
+//                                                                                     > [c] {
+//                                                                                         padding: 2px;
+        
+//                                                                                         span {
+//                                                                                             display: none;
+//                                                                                         }
+//                                                                                     }
+//                                                                                 }
+//                                                                             }
+//                                                                         }
+//                                                                     }
+//                                                                 }
+//                                                             }
+//                                                         }
+//                                                     }
+//                                                 }
+//                                             }
+//                                         }
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     //END MOBILE
+// }
