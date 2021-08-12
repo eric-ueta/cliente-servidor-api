@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserGuard } from './guards/user.guard';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent],
@@ -36,6 +37,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     }),
   ],
   providers: [
+    UserGuard,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,
