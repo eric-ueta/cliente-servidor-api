@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import '~ngx-toastr/toastr.css';
+
+html,
+body {
+  margin: 0px;
+  min-height: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  padding: 2em !important;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes from-left {
+  from {
+    opacity: 0;
+    z-index: 0;
+    margin-left: 0;
+  }
+  to {
+    opacity: 1;
+    z-index: 1000;
+    margin-left: calc(30% - 29);
+  }
+}
+
+@keyframes take-left {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+.btn-iris-primary,
+.bd-iris-primary {
+  color: #fff;
+  font-weight: bold;
+  background: rgb(255, 155, 2);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 155, 2, 1) 0%,
+    rgba(238, 153, 0, 1) 50%,
+    rgba(238, 183, 0, 1) 100%
+  );
+}

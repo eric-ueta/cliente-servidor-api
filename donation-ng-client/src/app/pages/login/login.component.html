@@ -1,0 +1,69 @@
+<div class="app-body h-100 w-100">
+  <main class="main d-flex row col-md-12 h-100 w-100">
+    <img class="robot-float fadeIn" src="../../../assets/img/robot2t.png" alt="" />
+    <div class="login-content h-100">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <form class="login-form" method="" novalidate="">
+              <img
+                class="logo-content"
+                src="../../../assets/img/logo-iris.png"
+                width="175px"
+                fill="black"
+              />
+              <div class="login-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bd-iris-secondary">
+                      <i class="bi bi-person-fill"></i>
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="CPF"
+                    name="cpf"
+                    [(ngModel)]="user.cpf"
+                    [ngClass]="{ 'red-border-class': invalidCredentials }"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bd-iris-secondary">
+                      <i class="bi bi-key-fill"></i>
+                    </span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Senha"
+                    [(ngModel)]="user.senha"
+                    [ngClass]="{ 'red-border-class': invalidCredentials }"
+                    name="senha"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="submit-content">
+                <div class="col-12 text-center submit-content">
+                  <button
+                    type="submit"
+                    class="btn btn-iris-primary text-uppercase w-100"
+                    (click)="login()"
+                  >
+                    Entrar
+                  </button>
+                </div>
+              </div>
+              <div class="aling-center text-center">
+                <button (click)="addNewUser()" style="border: none; background: none; text-align: center; text-decoration: underline; cursor: pointer;">Cadastrar Usuário</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

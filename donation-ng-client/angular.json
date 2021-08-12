@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -127,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "donation-ng-client"
+  "defaultProject": "donation-ng-client",
+  "cli": {
+    "analytics": "91fb3788-0918-4ef2-9d6e-ff6bf92cf2ae"
+  }
 }

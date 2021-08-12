@@ -22,6 +22,11 @@ namespace DonationServer
         /// </summary>
         public static string[] Hosts => configuration.GetSection(nameof(Hosts)).Get<string[]>();
 
+        /// <summary>
+        /// Secret utilizado para criação de tokens
+        /// </summary>
+        public static string Secret => configuration.GetSection(nameof(Secret)).Get<string>();
+
         #endregion Properties
 
         #region Constructors

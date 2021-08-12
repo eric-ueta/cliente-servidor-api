@@ -1,0 +1,139 @@
+@media (max-width: 1100px) {
+  :host > .app-body {
+    > .main {
+      > img {
+        display: none;
+      }
+
+      > div.login-content {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :host > .app-body {
+    > .main {
+      background: unset;
+
+      > img {
+        display: none;
+      }
+
+      > div.login-content {
+        width: 100%;
+        animation: none;
+
+        > div {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+:host {    
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+
+  img {
+    padding: unset;
+  }
+
+  .red-border-class {
+    border: 1px solid red;
+  }
+
+  > .app-body {
+    margin: 0;
+
+    > .main {
+      margin: 0;
+      padding: 0;
+      background-color: #1e293b;
+      // background: url(/assets/img/iris-robot.jpg) no-repeat;
+      background-size: 100% 100%;
+
+      > .robot-float {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        margin-top: 2em;
+        margin-left: calc(30% - 29px);
+        z-index: 1000;
+        animation: from-left 1s;
+      }
+
+      > .login-content {
+        padding: unset;
+        display: flex;
+        width: 30%;
+        animation: take-left 1s;
+
+        .card-group {
+          display: flex;
+          align-items: stretch;
+          flex-grow: 1;
+
+          &,
+          .card {
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: unset !important;
+            background: #ffffff;
+            // background: linear-gradient(
+            //   90deg,
+            //   rgba(199, 199, 199, 1) 0%,
+            //   rgba(226, 226, 226, 1) 50%,
+            //   rgba(255, 255, 255, 1) 100%
+            // );
+            animation: fade-in 1s;
+          }
+
+          > .card {
+            max-height: 100%;
+
+            > .card-body {
+              max-height: 100%;
+              display: flex;
+
+              > .login-form {
+                animation: fade-in 3s;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: stretch;
+                flex-grow: 1;
+                padding: 0.5em;
+
+                & > :not(:last-child) {
+                  margin-bottom: 2rem;
+                }
+
+                > .logo-content {
+                  align-self: center;
+                  //filter: brightness(0.4);
+                  margin-bottom: 5rem;
+                  width: 70%;
+                }
+
+                > .login-form-group {
+                  & > :not(:last-child) {
+                    margin-bottom: 1em;
+                  }
+                }
+
+                > .submit-content {
+                  // margin-bottom: 1em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
