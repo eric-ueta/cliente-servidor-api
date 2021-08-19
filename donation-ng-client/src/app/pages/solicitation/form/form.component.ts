@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Doacao } from 'src/app/models/donation';
+import { Solicitacao } from 'src/app/models/solicitation';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DonationService } from 'src/app/services/donation.service';
+import { SolicitationService } from 'src/app/services/solicitation.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent implements OnInit {
-  donation = new Doacao();
+export class Form2Component implements OnInit {
+  solicitation = new Solicitacao();
 
   constructor(
-    private donationService: DonationService,
+    private solicitationService: SolicitationService,
     private authService: AuthenticationService,
     private toast: ToastrService
   ) {}
@@ -21,11 +23,11 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {}
 
   save(): void {
-    if (this.donation.id) {
-      this.donation.doadorId = this.authService.getUser().usuario.id;
+    if (this.solicitation.id) {
+      this.solicitation.receptorId = this.authService.getUser().usuario.id;
 
-      this.donationService
-        .update(this.donation)
+      this.solicitationService
+        .update(this.solicitation)
         .then((response) => {
           console.log(response);
 
@@ -37,10 +39,10 @@ export class FormComponent implements OnInit {
           this.toast.error('Erro: ' + e.mensagem);
         });
     } else {
-      this.donation.doadorId = this.authService.getUser().usuario.id;
+      this.solicitation.receptorId = this.authService.getUser().usuario.id;
 
-      this.donationService
-        .create(this.donation)
+      this.solicitationService
+        .create(this.solicitation)
         .then((response) => {
           console.log(response);
 

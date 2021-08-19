@@ -22,6 +22,7 @@ import { SolicitationComponent } from './pages/solicitation/solicitation.compone
 import { FormComponent } from './pages/donation/form/form.component';
 import { DonationService } from './services/donation.service';
 import { SolicitationService } from './services/solicitation.service';
+import { Form2Component } from './pages/solicitation/form/form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SolicitationService } from './services/solicitation.service';
     DonationComponent,
     SolicitationComponent,
     FormComponent,
+    Form2Component,
   ],
   imports: [
     CommonModule,

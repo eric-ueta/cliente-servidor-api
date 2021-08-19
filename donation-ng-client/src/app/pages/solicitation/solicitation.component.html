@@ -1,1 +1,59 @@
-<p>solicitation works!</p>
+<div p>
+  <div b></div>
+  <div c>
+    <app-navbar></app-navbar>
+    <div class="content">
+      <button
+        type="button"
+        class="btn btn-success m-1 mb-3"
+        style="width: 10%; align-self: flex-end"
+        (click)="create()"
+      >
+        Adicionar
+      </button>
+      <table
+        class="table table-bordered table-striped text-center mobile-table"
+      >
+        <thead>
+          <tr>
+            <th>Tipo Doação</th>
+            <th>Data</th>
+            <th>Local</th>
+            <!-- <th>Doador</th> -->
+            <th>Quantidade Total</th>
+            <th>quantidade Restante</th>
+            <th class="md-column">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let solicitation of solicitations">
+            <!-- <td data-th="Código" class="xs-column">{{ solicitation.id }}</td> -->
+            <td data-th="CNPJ">{{ solicitation.tipo_doacao }}</td>
+            <td data-th="Nome">{{ solicitation.data }}</td>
+            <td data-th="Cidade">{{ solicitation.status }}</td>
+            <td data-th="Cidade">{{ solicitation.doacaoId }}</td>
+            <td data-th="Ações" class="sm-column">
+              <button
+                type="button"
+                class="btn btn-info m-1"
+                (click)="edit(solicitation)"
+              >
+                <i class="bi bi-pencil mr-1"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger m-1"
+                (click)="delete(solicitation.id)"
+              >
+                <i class="bi bi-trash mr-1"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="solicitations.length == 0">
+            <td colspan="7">Nenhum Registro Encontrado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

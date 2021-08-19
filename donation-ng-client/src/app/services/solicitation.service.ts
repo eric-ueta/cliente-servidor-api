@@ -10,7 +10,7 @@ export class SolicitationService {
     private authService: AuthenticationService
   ) {}
 
-  getAll(userId: any): Promise<Solicitacao[]> {
+  getAll(): Promise<Solicitacao[]> {
     let url = `${localStorage.getItem('server')}/usuarios/${
       this.authService.getUser().usuario.id
     }/solicitacoes`;
