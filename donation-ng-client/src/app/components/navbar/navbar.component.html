@@ -45,6 +45,7 @@
                       class="item"
                       [ngClass]="selected == 1 ? 'selected' : ''"
                       p
+                      *ngIf="userType == 0"
                     >
                       <div c>
                         <a p href="doacoes">
@@ -60,6 +61,7 @@
                       class="item"
                       [ngClass]="selected == 2 ? 'selected' : ''"
                       p
+                      *ngIf="userType == 1"
                     >
                       <div c>
                         <a p href="solicitacoes">

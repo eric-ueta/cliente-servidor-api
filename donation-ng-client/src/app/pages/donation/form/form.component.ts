@@ -11,6 +11,7 @@ import { DonationService } from 'src/app/services/donation.service';
 })
 export class FormComponent implements OnInit {
   donation = new Doacao();
+  selectedDonations: any;
 
   constructor(
     private donationService: DonationService,
@@ -18,9 +19,15 @@ export class FormComponent implements OnInit {
     private toast: ToastrService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.donation.tipo_doacao) {
+      this.selectedDonations = this.donation.tipo_doacao;
+    }
+  }
 
   save(): void {
+    // this.donation.tipo_doacao = this.selectedDonations; //?.join(',') ?? '';
+
     if (this.donation.id) {
       this.donation.doadorId = this.authService.getUser().usuario.id;
 

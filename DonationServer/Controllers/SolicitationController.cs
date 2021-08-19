@@ -55,7 +55,7 @@ namespace DonationServer.Controllers
         {
             try
             {
-                bool deleted = await _sqliteManager.DeleteDonation(solicitacaoId);
+                bool deleted = await _sqliteManager.DeleteSolicitation(solicitacaoId);
 
                 return deleted
                     ? NoContent()

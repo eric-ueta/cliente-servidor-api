@@ -1,14 +1,18 @@
 <form name="receiver-form" class="form-horizontal col-md-12">
   <div class="form-group row">
-    <label class="col-md-12 col-form-label" for="text-input">Tipo doacao</label>
-    <input
-      type="text"
-      class="form-control col-md-12"
-      placeholder="tipo_doacao"
-      [class.is-invalid]="!donation.tipo_doacao"
+    <label class="col-md-12 col-form-label" for="text-input"
+      >Tipo de Doação</label
+    >
+    <select
+      class="col-md-12 form-select browser-default custom-select"
       [(ngModel)]="donation.tipo_doacao"
-      name="ctipo_doacaopf"
-    />
+      name="tipo_doacao"
+      required
+    >
+      <option [ngValue]="'Roupa'">Roupa</option>
+      <option [ngValue]="'Remedio'">Remedio</option>
+      <option [ngValue]="'Cesta'">Cesta</option>
+    </select>
   </div>
   <div class="form-group row">
     <label class="col-md-12 col-form-label" for="text-input">data</label>

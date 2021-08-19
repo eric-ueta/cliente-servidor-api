@@ -13,6 +13,7 @@ import { SolicitationService } from 'src/app/services/solicitation.service';
 })
 export class Form2Component implements OnInit {
   solicitation = new Solicitacao();
+  selectedDonations: any;
 
   constructor(
     private solicitationService: SolicitationService,
@@ -20,9 +21,15 @@ export class Form2Component implements OnInit {
     private toast: ToastrService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.solicitation.tipo_doacao) {
+      this.selectedDonations = this.solicitation.tipo_doacao;
+    }
+  }
 
   save(): void {
+    // this.solicitation.tipo_doacao = this.selectedDonations; //?.join(',') ?? '' : null;
+
     if (this.solicitation.id) {
       this.solicitation.receptorId = this.authService.getUser().usuario.id;
 

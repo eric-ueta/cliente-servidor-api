@@ -3,14 +3,22 @@
   <div c>
     <app-navbar></app-navbar>
     <div class="content">
-      <button
-        type="button"
-        class="btn btn-success m-1 mb-3"
-        style="width: 10%; align-self: flex-end"
-        (click)="create()"
-      >
-        Adicionar
-      </button>
+      <div class="row col-md-12">
+        <h2
+          style="align-self: flex-start; flex-shrink: 1; flex-direction: column"
+          class="col-md-10 mr-0"
+        >
+          Solicitações
+        </h2>
+        <button
+          type="button"
+          class="btn btn-success mt-1 mb-3 ml-0 mr-0 col-md-2"
+          style="align-self: flex-end; flex-shrink: 1"
+          (click)="create()"
+        >
+          Adicionar
+        </button>
+      </div>
       <table
         class="table table-bordered table-striped text-center mobile-table"
       >
@@ -18,10 +26,8 @@
           <tr>
             <th>Tipo Doação</th>
             <th>Data</th>
-            <th>Local</th>
-            <!-- <th>Doador</th> -->
-            <th>Quantidade Total</th>
-            <th>quantidade Restante</th>
+            <th>Status</th>
+            <th>Doacao</th>
             <th class="md-column">Ações</th>
           </tr>
         </thead>
@@ -50,7 +56,7 @@
             </td>
           </tr>
           <tr *ngIf="solicitations.length == 0">
-            <td colspan="7">Nenhum Registro Encontrado</td>
+            <td colspan="5">Nenhum Registro Encontrado</td>
           </tr>
         </tbody>
       </table>

@@ -17,13 +17,14 @@ export class NavbarComponent implements OnInit {
   @Output() changeNavView = new EventEmitter<boolean>();
   vertical = true;
   selected = 0;
+  userType = 0;
 
   constructor(
     private router: Router,
     private authService: AuthenticationService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.router.url.includes('doacoes')) {
       this.selected = 1;
     } else if (this.router.url.includes('solicitacoes')) {
@@ -31,15 +32,17 @@ export class NavbarComponent implements OnInit {
     } else {
       this.selected = 0;
     }
+
+    this.userType = this.authService.getUser().usuario.tipo;
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout().finally(() => {
       this.router.navigate(['/login']);
     });
   }
 
-  changeNav() {
+  changeNav(): void {
     this.vertical = !this.vertical;
     this.changeNavView.emit(this.vertical);
   }
