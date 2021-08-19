@@ -29,7 +29,6 @@ namespace DonationServer.Sqlite
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="databaseName"> database name </param>
         public SQLiteManager()
         {
             try
@@ -39,6 +38,8 @@ namespace DonationServer.Sqlite
                 this._connectionString = databaseFactory.BuildDatabaseConnectionString("donation_db");
 
                 CreateUserTable();
+                CreateDoacaoTable();
+                CreateSolicitacaoTable();
             }
             catch (Exception)
             {
@@ -97,7 +98,7 @@ namespace DonationServer.Sqlite
                               Data VARCHAR(500),
                               DoacaoId INTEGER,
                               ReceptorId INTEGER,
-                              Status INTEGER),
+                              Status INTEGER,
                               TipoDoacao VARCHAR(500)
                             );";
 

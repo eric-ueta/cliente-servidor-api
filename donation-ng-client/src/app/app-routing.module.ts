@@ -4,14 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { UserGuard } from './guards/user.guard';
+import { DonationComponent } from './pages/donation/donation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { SolicitationComponent } from './pages/solicitation/solicitation.component';
 import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'doacoes',
+    component: DonationComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'solicitacoes',
+    component: SolicitationComponent,
     canActivate: [UserGuard],
   },
   {

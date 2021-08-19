@@ -41,6 +41,36 @@
                         </a>
                       </div>
                     </li>
+                    <li
+                      class="item"
+                      [ngClass]="selected == 1 ? 'selected' : ''"
+                      p
+                    >
+                      <div c>
+                        <a p href="doacoes">
+                          <div b></div>
+                          <div c>
+                            <i class="bi bi-basket2-fill"></i>
+                            <span>Doacoes</span>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+                    <li
+                      class="item"
+                      [ngClass]="selected == 2 ? 'selected' : ''"
+                      p
+                    >
+                      <div c>
+                        <a p href="solicitacoes">
+                          <div b></div>
+                          <div c>
+                            <i class="bi bi-bag-plus-fill"></i>
+                            <span>Solicitacoes</span>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -54,7 +84,7 @@
       <div c>
         <div class="actions" p>
           <div b></div>
-          <div (click)="logout()" c>
+          <div (click)="logout()" c style="font-size: 20px; font-weight: bold">
             <i class="bi bi-power" title="Logout - Sair"></i>
           </div>
         </div>

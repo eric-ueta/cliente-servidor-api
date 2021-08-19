@@ -51,7 +51,7 @@ namespace DonationServer.Controllers
         }
 
         [HttpDelete("{doacaoId}")]
-        public async Task<ActionResult<Doacao>> Delete([FromBody] int doacaoId)
+        public async Task<ActionResult<Doacao>> Delete(int doacaoId)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace DonationServer.Controllers
                     ? Ok(donations)
                     : NoContent();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

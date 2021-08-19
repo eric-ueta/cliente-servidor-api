@@ -1,307 +1,312 @@
-@import '../../../../sass/variables.scss';
-@import './nav-media-queries.scss';
-@import './nav-vertical.scss';
+@import "../../../../sass/variables.scss";
+@import "./nav-media-queries.scss";
+@import "./nav-vertical.scss";
 
 :host {
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  justify-content: stretch;
+  align-items: stretch;
+
+  a {
+    text-decoration: unset;
+    color: unset;
+  }
+
+  > .navbar-mine {
     flex-direction: row;
-    flex-shrink: 1;
-    justify-content: stretch;
+    flex-grow: 1;
+    justify-content: center;
     align-items: stretch;
 
-    a {
-        text-decoration: unset;
-        color: unset;
+    > [b] {
+      background-color: $nav-background-color;
     }
 
-    > .navbar-mine {
-        flex-direction: row;
-        flex-grow: 1;
-        justify-content: center;
-        align-items: stretch;
-    
+    > [c] {
+      flex-direction: row;
+      color: $nav-color;
+
+      > .bar-left {
+        flex-grow: 3;
+        flex-direction: inherit;
+
         > [b] {
-            background-color: $nav-background-color;
         }
 
         > [c] {
-            flex-direction: row;
-            color: $nav-color;
+          flex-direction: inherit;
 
-            > .bar-left {
-                flex-grow: 3;
-                flex-direction: inherit;
+          > .icon-content {
+            flex-shrink: 1;
 
-                > [b] { }
+            > [b] {
+            }
 
+            > [c] {
+              font-weight: 500;
+              flex-direction: row;
+              padding: 2px 15px 2px 5px;
+              align-items: center;
+
+              > img {
+                width: 60px;
+                height: 40px;
+              }
+
+              span {
+                margin-left: 5px;
+              }
+            }
+          }
+
+          .menu {
+            flex-grow: 1;
+
+            > [b] {
+              background-color: $nav-background-color;
+            }
+
+            > [c] {
+              // > :first-child {
+              //     > [c] {
+              //         padding: 2px 5px;
+              //     }
+              // }
+
+              // > :first-child:hover {
+
+              //     > [c] {
+              //         > a {
+              //             color: #fff;
+
+              //             i {
+              //                 font-size: 25px;
+              //             }
+              //         }
+              //     }
+              // }
+
+              > .item {
                 > [c] {
-                    flex-direction: inherit;
+                  > .head {
+                    display: none;
 
-                    > .icon-content {
-                        flex-shrink: 1;
-    
-                        > [b] { }
-    
+                    > [c] {
+                      color: #fff;
+
+                      > i {
+                        margin: unset;
+                      }
+
+                      > span {
+                        margin-left: 10px;
+                      }
+                    }
+                  }
+
+                  > .body {
+                    flex-grow: 1;
+                    position: relative;
+                    display: flex;
+                    width: max-content;
+                    max-width: unset;
+                    z-index: unset;
+                    top: unset;
+                    left: unset;
+
+                    > [b] {
+                      background-color: unset;
+                      box-shadow: unset;
+                      border-bottom-right-radius: unset;
+                      border-bottom-left-radius: unset;
+                    }
+
+                    > [c] {
+                      flex-direction: row;
+
+                      // :not(:first-child) {
+                      //     margin: unset;
+                      // }
+
+                      .item.selected:not(:hover) {
                         > [c] {
+                          > a {
+                            color: #333333;
+
+                            > [b] {
+                              background-color: #f1f1f1;
+                              border-bottom: 4px solid #ee9900;
+                            }
+                          }
+                        }
+                      }
+
+                      .item:hover {
+                        background-color: #5d5d5d;
+                        color: #fff;
+
+                        > [c] {
+                          > a {
+                            border-bottom: 4px solid #ee9900;
+                            color: #fff;
                             font-weight: 500;
-                            flex-direction: row;
-                            padding: 2px 15px 2px 5px;
+                          }
+                        }
+                      }
+
+                      .item {
+                        > [c] {
+                          > a {
+                            justify-content: stretch;
                             align-items: center;
+                            color: $nav-color;
+                            text-decoration: unset;
 
-                            > img {
-                                width: 60px;
-                                height: 40px;
-                            }
+                            > [c] {
+                              padding: 0 10px;
+                              flex-direction: row;
+                              align-items: center;
+                              font-size: calc(#{$font-size} - 0.1em);
 
-                            span {
+                              span {
                                 margin-left: 5px;
+                              }
                             }
+                          }
                         }
+                      }
                     }
-    
-                    .menu {
-                        flex-grow: 1;
-                        
-                        > [b] {
-                            background-color: $nav-background-color;
-                        }
-    
-                        > [c] { 
-                            // > :first-child {
-                            //     > [c] {
-                            //         padding: 2px 5px;
-                            //     }
-                            // }
-
-                            // > :first-child:hover {
-
-                            //     > [c] {
-                            //         > a {
-                            //             color: #fff;
-
-                            //             i {
-                            //                 font-size: 25px;
-                            //             }
-                            //         }
-                            //     }
-                            // }
-
-                            > .item {
-
-                                > [c] {
-
-                                    > .head {
-                                        display: none;
-
-                                        > [c] {
-                                            color: #fff;
-
-                                            > i {
-                                                margin: unset;
-                                            }
-
-                                            > span {
-                                                margin-left: 10px;
-                                            }
-                                        }
-                                    }
-
-                                    > .body {
-                                        flex-grow: 1;
-                                        position: relative;
-                                        display: flex;
-                                        width: max-content;
-                                        max-width: unset;
-                                        z-index: unset;
-                                        top: unset;
-                                        left: unset;
-
-                                        > [b] {
-                                            background-color: unset; 
-                                            box-shadow: unset; 
-                                            border-bottom-right-radius: unset; 
-                                            border-bottom-left-radius: unset;
-                                        }
-
-                                        > [c] {
-                                            flex-direction: row;
-
-                                            // :not(:first-child) {
-                                            //     margin: unset;
-                                            // }
-
-                                            .item.selected:not(:hover) {
-                                                > [c] {
-                                                    
-
-                                                    > a {
-                                                        color: #333333;
-
-                                                        > [b] {
-                                                            background-color: #f1f1f1;
-                                                            border-bottom: 4px solid #ee9900;
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-                                            .item:hover{
-                                                background-color: #5d5d5d;
-                                                color: #fff;
-
-                                                > [c] {
-                                                    > a {
-                                                        border-bottom: 4px solid #ee9900;
-                                                        color: #fff;
-                                                        font-weight: 500;
-                                                    }
-                                                }
-                                            }
-
-                                            .item {
-                                                > [c] {
-
-                                                    > a {
-                                                        justify-content: stretch;
-                                                        align-items: center;
-                                                        color: $nav-color;
-                                                        text-decoration: unset;
-                                                        
-                                                        > [c] {
-                                                            padding: 0 10px;
-                                                            flex-direction: row;
-                                                            align-items: center;
-                                                            font-size: calc(#{ $font-size } - 0.1em);
-                    
-                                                            span {
-                                                                margin-left: 5px;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                  }
                 }
+              }
             }
-            
-            > .bar-right {
-                flex-grow: 3;
-                flex-direction: inherit;
+          }
+        }
+      }
 
-                > [b] { }
+      > .bar-right {
+        flex-grow: 3;
+        flex-direction: inherit;
+
+        > [b] {
+        }
+
+        > [c] {
+          flex-direction: inherit;
+          justify-content: flex-end;
+
+          > .search-content {
+            margin-right: 10px;
+
+            > .search {
+              flex-grow: 4;
+
+              > [b] {
+              }
+
+              > [c] {
+              }
+            }
+          }
+
+          > .actions {
+            > [b] {
+            }
+
+            > [c] {
+              :first-child {
+                color: #ffb500;
+              }
+
+              :not(:nth-child(1)) {
+                margin-left: 5px;
+              }
+
+              align-items: center;
+              justify-content: center;
+              flex-direction: row;
+            }
+          }
+
+          > .user {
+            flex-shrink: 1;
+
+            > [b] {
+            }
+
+            > [c] {
+              justify-content: center;
+              align-items: center;
+              padding: 0 5px 0 8px;
+
+              > .select-content {
+                &,
+                > button,
+                > div,
+                > [c] > .select-menu,
+                .head {
+                  max-height: 35px;
+                }
+
+                > [b] {
+                  border-radius: 2em;
+                  background-color: #5d5d5d;
+                }
 
                 > [c] {
-                    flex-direction: inherit;
-                    justify-content: flex-end;
+                  padding: 0;
 
-                    > .search-content {
-                        margin-right: 10px;
+                  span,
+                  i {
+                    color: #fff;
+                  }
 
-                        > .search {
-                            flex-grow: 4;
-        
-                            > [b] { }
-        
-                            > [c] { }
-                        }
+                  > .select-btn {
+                    > [b] {
+                      border-radius: 2em;
+                      background-color: #5d5d5d;
                     }
 
-                    > .actions {
-    
-                        > [b] { }
-    
-                        > [c] { 
-                            :first-child {
-                                color: #ffb500;
-                            }
-
-                            :not(:nth-child(1)) {
-                                margin-left: 5px;
-                            }
-
-                            align-items: center;
-                            justify-content: center;
-                            flex-direction: row;
-                        }
+                    > [c] {
+                      padding: unset;
+                      padding-left: 5px;
                     }
-                    
-                    > .user {
-                        flex-shrink: 1;
-    
-                        > [b] { }
-    
-                        > [c] {    
-                            justify-content: center;
-                            align-items: center;
-                            padding: 0 5px 0 8px;
+                  }
 
-                            > .select-content {
-                                &, > button, > div, > [c] > .select-menu, .head { 
-                                    max-height: 35px; 
-                                }
-
-                                > [b] { 
-                                    border-radius: 2em;
-                                    background-color: #5d5d5d;
-                                }
-
-                                > [c] {
-                                    padding: 0;
-
-                                    span, i {
-                                        color: #fff;
-                                    }
-
-                                    > .select-btn {
-
-                                        > [b] {
-                                            border-radius: 2em;
-                                            background-color: #5d5d5d;
-                                        }
-
-                                        > [c] {
-                                            padding: unset;
-                                            padding-left: 5px;
-                                        }
-                                    }
-
-                                    > .select-menu {
-                                        > [b] {
-                                            border-radius: 2em;
-                                            background-color: #5d5d5d;
-                                        }
-
-                                        > [c] {
-                                            padding: unset;
-                                            // padding-left: 5px;
-                                            
-                                            > .item {
-                                                > [c] {
-                                                    > .head {
-                                                        > [b] {
-                                                            border-radius: 2em;
-                                                        }
-                                                    }
-
-                                                    > .body {
-                                                        right: 0;
-                                                        left: unset;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                  > .select-menu {
+                    > [b] {
+                      border-radius: 2em;
+                      background-color: #5d5d5d;
                     }
+
+                    > [c] {
+                      padding: unset;
+                      // padding-left: 5px;
+
+                      > .item {
+                        > [c] {
+                          > .head {
+                            > [b] {
+                              border-radius: 2em;
+                            }
+                          }
+
+                          > .body {
+                            right: 0;
+                            left: unset;
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
+              }
             }
+          }
         }
+      }
     }
+  }
 }

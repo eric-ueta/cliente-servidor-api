@@ -17,9 +17,22 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserGuard } from './guards/user.guard';
+import { DonationComponent } from './pages/donation/donation.component';
+import { SolicitationComponent } from './pages/solicitation/solicitation.component';
+import { FormComponent } from './pages/donation/form/form.component';
+import { DonationService } from './services/donation.service';
+import { SolicitationService } from './services/solicitation.service';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    NavbarComponent,
+    DonationComponent,
+    SolicitationComponent,
+    FormComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -39,6 +52,8 @@ import { UserGuard } from './guards/user.guard';
   providers: [
     UserGuard,
     UserService,
+    DonationService,
+    SolicitationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,

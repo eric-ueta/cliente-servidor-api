@@ -51,7 +51,7 @@ namespace DonationServer.Controllers
         }
 
         [HttpDelete("{solicitacaoId}")]
-        public async Task<ActionResult<Solicitacao>> Delete([FromBody] int solicitacaoId)
+        public async Task<ActionResult<Solicitacao>> Delete(int solicitacaoId)
         {
             try
             {

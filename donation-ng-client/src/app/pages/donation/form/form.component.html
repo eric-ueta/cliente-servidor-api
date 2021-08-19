@@ -1,0 +1,66 @@
+<form name="receiver-form" class="form-horizontal col-md-12">
+  <div class="form-group row">
+    <label class="col-md-12 col-form-label" for="text-input">Tipo doacao</label>
+    <input
+      type="text"
+      class="form-control col-md-12"
+      placeholder="tipo_doacao"
+      [class.is-invalid]="!donation.tipo_doacao"
+      [(ngModel)]="donation.tipo_doacao"
+      name="ctipo_doacaopf"
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-md-12 col-form-label" for="text-input">data</label>
+    <input
+      type="datetime-local"
+      class="form-control col-md-12"
+      placeholder="data"
+      [class.is-invalid]="!donation.data"
+      [(ngModel)]="donation.data"
+      name="data"
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-md-12 col-form-label" for="text-input">local</label>
+    <input
+      type="text"
+      class="form-control col-md-12"
+      placeholder="local"
+      [class.is-invalid]="!donation.local"
+      [(ngModel)]="donation.local"
+      name="local"
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-md-12 col-form-label" for="text-input"
+      >quantidade total</label
+    >
+    <input
+      type="number"
+      class="form-control col-md-12"
+      placeholder="quantidade_total"
+      [class.is-invalid]="!donation.quantidade_total"
+      [(ngModel)]="donation.quantidade_total"
+      name="quantidade_total"
+    />
+  </div>
+  <div class="form-group row">
+    <label class="col-md-12 col-form-label" for="text-input"
+      >quantidade restante</label
+    >
+    <input
+      type="number"
+      class="form-control col-md-12"
+      placeholder="quantidade_restante"
+      [class.is-invalid]="!donation.quantidade_restante"
+      [(ngModel)]="donation.quantidade_restante"
+      name="quantidade_restante"
+    />
+  </div>
+  <div class="form-group row mt-4">
+    <button type="button" (click)="save()" class="btn btn-success">
+      Salvar
+    </button>
+  </div>
+</form>

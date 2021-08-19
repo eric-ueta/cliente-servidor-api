@@ -1,0 +1,17 @@
+:host {
+  > [p] {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .content {
+    padding: 1em 1em 1em 4em;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    align-items: stretch;
+    min-height: 100%;
+    height: 100%;
+    flex-direction: column;
+  }
+}

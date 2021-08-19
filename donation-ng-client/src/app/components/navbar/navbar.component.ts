@@ -24,12 +24,12 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (this.router.url.includes('servers')) {
-      this.selected = 0;
-    } else if (this.router.url.includes('layouts')) {
+    if (this.router.url.includes('doacoes')) {
       this.selected = 1;
-    } else if (this.router.url.includes('cameras')) {
+    } else if (this.router.url.includes('solicitacoes')) {
       this.selected = 2;
+    } else {
+      this.selected = 0;
     }
   }
 
