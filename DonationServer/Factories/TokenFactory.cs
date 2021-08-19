@@ -19,7 +19,7 @@ namespace DonationServer.Factories
 
             var claims = new List<Claim>
             {
-                new Claim("Id", user.Id.ToString()),
+                new Claim("id", user.Id.ToString()),
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor
