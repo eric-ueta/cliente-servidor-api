@@ -4,7 +4,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { Usuario } from 'src/app/models/user';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { UserComponent } from '../user/user.component';
+import { UserComponent } from '../donation copy/user.component';
 
 @Component({
   selector: 'app-login',
@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
     // }
   }
 
-  addNewUser(): void {
-    console.log('here');
-    this.modalService?.show(UserComponent);
-  }
+  // addNewUser(): void {
+  //   console.log('here');
+  //   this.modalService?.show(UserComponent);
+  // }
 
   setServer(e: any): void {
     localStorage.setItem('server', this.server);

@@ -59,7 +59,7 @@ namespace DonationServer.Controllers
 
                 return deleted
                     ? NoContent()
-                    : BadRequest(new ErrorResponse("Erro ao editar solicitacao", 400));
+                    : BadRequest(new ErrorResponse("Erro ao deletar solicitacao", 400));
             }
             catch (Exception)
             {

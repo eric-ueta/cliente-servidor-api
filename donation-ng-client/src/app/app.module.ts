@@ -23,6 +23,9 @@ import { FormComponent } from './pages/donation/form/form.component';
 import { DonationService } from './services/donation.service';
 import { SolicitationService } from './services/solicitation.service';
 import { Form2Component } from './pages/solicitation/form/form.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { Form3Component } from './pages/donation copy/form/form.component';
+import { UserComponent } from './pages/donation copy/user.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { Form2Component } from './pages/solicitation/form/form.component';
     SolicitationComponent,
     FormComponent,
     Form2Component,
+    Form3Component,
+    UserComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +46,7 @@ import { Form2Component } from './pages/solicitation/form/form.component';
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    NgxMaskModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),

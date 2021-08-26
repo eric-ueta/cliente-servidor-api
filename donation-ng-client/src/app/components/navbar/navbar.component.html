@@ -73,6 +73,22 @@
                         </a>
                       </div>
                     </li>
+                    <li
+                      class="item"
+                      [ngClass]="selected == 3 ? 'selected' : ''"
+                      p
+                      *ngIf="userType == 2"
+                    >
+                      <div c>
+                        <a p href="usuarios">
+                          <div b></div>
+                          <div c>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Usuários</span>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>

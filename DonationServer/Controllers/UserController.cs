@@ -1,6 +1,7 @@
 ﻿using DonationServer.Domain;
 using DonationServer.Responses;
 using DonationServer.Sqlite;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace DonationServer.Controllers
 {
     [Route("usuarios")]
     [ApiController]
+    //[Authorize]
     public class UserController : ControllerBase
     {
         #region Fields
@@ -37,11 +39,35 @@ namespace DonationServer.Controllers
         {
             try
             {
+                //UserType userType = (UserType)(Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == "tipo")?.Value));
+
+                //if (userType != UserType.Admin)
+                //{
+                //    return BadRequest(new ErrorResponse("usuario não é administrador", 403));
+                //}
+
                 User createdUser = await _sqliteManager.SaveUser(user);
 
                 return createdUser is not null
                     ? Ok(createdUser)
                     : BadRequest(new ErrorResponse("Erro ao criar usuario", 400));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpDelete("{userId}")]
+        public async Task<ActionResult<Solicitacao>> Delete(int userId)
+        {
+            try
+            {
+                bool deleted = await _sqliteManager.DeleteUser(userId);
+
+                return deleted
+                    ? NoContent()
+                    : BadRequest(new ErrorResponse("Erro ao excluir usuário", 400));
             }
             catch (Exception)
             {
@@ -67,8 +93,25 @@ namespace DonationServer.Controllers
                 var users = await _sqliteManager.GetAllUser();
 
                 return users?.Count() > 0
-                    ? Ok(User)
+                    ? Ok(users)
                     : NoContent();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Solicitacao>> Put([FromBody] User user)
+        {
+            try
+            {
+                User updated = await _sqliteManager.UpdateUser(user);
+
+                return updated is not null
+                    ? Ok(updated)
+                    : BadRequest(new ErrorResponse("Erro ao editar usuário", 400));
             }
             catch (Exception)
             {

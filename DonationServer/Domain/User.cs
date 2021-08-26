@@ -2,6 +2,13 @@
 
 namespace DonationServer.Domain
 {
+    public enum UserType
+    {
+        Doador,
+        Receptor,
+        Admin
+    }
+
     public class User
     {
         #region Properties
@@ -20,7 +27,7 @@ namespace DonationServer.Domain
 
         public string Telefone { get; set; }
 
-        public int Tipo { get; set; }
+        public UserType Tipo { get; set; }
 
         //[JsonPropertyName("tipo_doacao")]
         //public string TipoDoacao { get; set; }

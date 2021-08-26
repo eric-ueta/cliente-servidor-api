@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { UserGuard } from './guards/user.guard';
+import { UserComponent } from './pages/donation copy/user.component';
 import { DonationComponent } from './pages/donation/donation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SolicitationComponent } from './pages/solicitation/solicitation.component';
-import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
   {
@@ -24,6 +24,11 @@ const routes: Routes = [
   {
     path: 'solicitacoes',
     component: SolicitationComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'usuarios',
+    component: UserComponent,
     canActivate: [UserGuard],
   },
   {
@@ -44,6 +49,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
-  declarations: [UserComponent],
+  declarations: [],
 })
 export class AppRoutingModule {}

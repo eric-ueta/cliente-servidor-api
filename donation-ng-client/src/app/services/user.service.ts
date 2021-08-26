@@ -7,8 +7,8 @@ import { Usuario } from '../models/user';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getUsers(): Promise<Usuario[]> {
-    let url = `${localStorage.getItem('server')}/api/users`;
+  getAll(): Promise<Usuario[]> {
+    let url = `${localStorage.getItem('server')}/usuarios`;
 
     url = url.replace(/[?&]$/, '');
 
@@ -16,7 +16,7 @@ export class UserService {
   }
 
   update(user: Usuario): Promise<void> {
-    const url = `${localStorage.getItem('server')}/api/users/${user.id}/update`;
+    const url = `${localStorage.getItem('server')}/usuarios`;
 
     return this.http.put<void>(url, user, {}).toPromise();
   }
@@ -28,7 +28,7 @@ export class UserService {
   }
 
   delete(userId: number): Promise<void> {
-    const url = `${localStorage.getItem('server')}/api/users/${userId}/delete`;
+    const url = `${localStorage.getItem('server')}/usuarios/${userId}`;
 
     return this.http.delete<void>(url, {}).toPromise();
   }

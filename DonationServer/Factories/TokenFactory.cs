@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using DonationServer.Domain;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,7 +12,7 @@ namespace DonationServer.Factories
     {
         #region Methods
 
-        public static string GenerateToken(dynamic user)
+        public static string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -20,6 +21,7 @@ namespace DonationServer.Factories
             var claims = new List<Claim>
             {
                 new Claim("id", user.Id.ToString()),
+                new Claim("tipo", user.Tipo.ToString()),
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor

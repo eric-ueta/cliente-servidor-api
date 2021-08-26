@@ -29,6 +29,8 @@ export class NavbarComponent implements OnInit {
       this.selected = 1;
     } else if (this.router.url.includes('solicitacoes')) {
       this.selected = 2;
+    } else if (this.router.url.includes('usuarios')) {
+      this.selected = 3;
     } else {
       this.selected = 0;
     }

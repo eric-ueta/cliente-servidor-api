@@ -419,7 +419,7 @@ namespace DonationServer.Sqlite
                         cmd.Parameters.AddWithValue(nameof(solicitation.Data), solicitation?.Data ?? "");
                         cmd.Parameters.AddWithValue(nameof(solicitation.DoacaoId), solicitation?.DoacaoId ?? 0);
                         cmd.Parameters.AddWithValue(nameof(solicitation.ReceptorId), solicitation?.ReceptorId ?? 0);
-                        cmd.Parameters.AddWithValue(nameof(solicitation.Status), solicitation?.Status ?? 0);
+                        cmd.Parameters.AddWithValue(nameof(solicitation.Status), solicitation?.Status ?? false);
                         cmd.Parameters.AddWithValue(nameof(solicitation.TipoDoacao), solicitation?.TipoDoacao ?? "");
 
                         var obj = await cmd.ExecuteScalarAsync();
@@ -466,7 +466,7 @@ namespace DonationServer.Sqlite
                         cmd.Parameters.AddWithValue(nameof(solicitation.Data), solicitation?.Data ?? "");
                         cmd.Parameters.AddWithValue(nameof(solicitation.DoacaoId), solicitation?.DoacaoId ?? 0);
                         cmd.Parameters.AddWithValue(nameof(solicitation.ReceptorId), solicitation?.ReceptorId ?? 0);
-                        cmd.Parameters.AddWithValue(nameof(solicitation.Status), solicitation?.Status ?? 0);
+                        cmd.Parameters.AddWithValue(nameof(solicitation.Status), solicitation?.Status ?? false);
                         cmd.Parameters.AddWithValue(nameof(solicitation.TipoDoacao), solicitation?.TipoDoacao ?? "");
                         cmd.Parameters.AddWithValue(nameof(solicitation.Id), solicitation?.Id ?? 0);
 
@@ -487,6 +487,29 @@ namespace DonationServer.Sqlite
         #endregion Solicitacoes
 
         #region Users
+
+        public async Task<bool> DeleteUser(int userId)
+        {
+            try
+            {
+                using (var conn = new SqliteConnection(_connectionString))
+                {
+                    await conn.OpenAsync().ConfigureAwait(false);
+
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = @$"DELETE FROM Users
+                                     WHERE Id = {userId}";
+
+                        return (await cmd.ExecuteNonQueryAsync()) > 0;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public async Task<IEnumerable<User>> GetAllUser()
         {
@@ -605,6 +628,52 @@ namespace DonationServer.Sqlite
                 }
 
                 return created
+                    ? user
+                    : null;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<User> UpdateUser(User user)
+        {
+            try
+            {
+                int rows = 0;
+
+                using (var conn = new SqliteConnection(_connectionString))
+                {
+                    await conn.OpenAsync();
+
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText =
+                            $@"UPDATE Users SET
+                                Nome = @{nameof(user.Nome)},
+                                Cpf = @{nameof(user.Cpf)},
+                                Senha = @{nameof(user.Senha)},
+                                Email = @{nameof(user.Email)},
+                                Telefone = @{nameof(user.Telefone)},
+                                Endereco = @{nameof(user.Endereco)},
+                                Tipo = @{nameof(user.Tipo)}
+                            WHERE Id = @{nameof(user.Id)};";
+
+                        cmd.Parameters.AddWithValue(nameof(user.Nome), user?.Nome ?? "");
+                        cmd.Parameters.AddWithValue(nameof(user.Cpf), user?.Cpf ?? "");
+                        cmd.Parameters.AddWithValue(nameof(user.Senha), user?.Senha ?? "");
+                        cmd.Parameters.AddWithValue(nameof(user.Email), user?.Email ?? "");
+                        cmd.Parameters.AddWithValue(nameof(user.Telefone), user?.Telefone ?? "");
+                        cmd.Parameters.AddWithValue(nameof(user.Endereco), user?.Endereco ?? "");
+                        cmd.Parameters.AddWithValue(nameof(user.Tipo), user?.Tipo ?? 0);
+                        cmd.Parameters.AddWithValue(nameof(user.Id), user?.Id ?? 0);
+
+                        rows = await cmd.ExecuteNonQueryAsync();
+                    }
+                }
+
+                return rows > 0
                     ? user
                     : null;
             }

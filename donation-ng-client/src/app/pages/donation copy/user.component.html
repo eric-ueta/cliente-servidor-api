@@ -1,0 +1,71 @@
+<div p>
+  <div b></div>
+  <div c>
+    <app-navbar></app-navbar>
+    <div class="content">
+      <div class="row col-md-12">
+        <h2
+          style="align-self: flex-start; flex-shrink: 1; flex-direction: column"
+          class="col-md-10 mr-0"
+        >
+          Usuários
+        </h2>
+        <button
+          type="button"
+          class="btn btn-success mt-1 mb-3 ml-0 mr-0 col-md-2"
+          style="align-self: flex-end; flex-shrink: 1"
+          (click)="create()"
+        >
+          Adicionar
+        </button>
+      </div>
+      <table
+        class="table table-bordered table-striped text-center mobile-table"
+      >
+        <thead>
+          <tr>
+            <th>Cpf</th>
+            <th>Email</th>
+            <th>Endereco</th>
+            <!-- <th>Doador</th> -->
+            <th>Nome</th>
+            <th>Senha</th>
+            <th>Telefone</th>
+            <th>Tipo</th>
+            <th class="md-column">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td data-th="CNPJ">{{ user.cpf }}</td>
+            <td data-th="Nome">{{ user.email }}</td>
+            <td data-th="Cidade">{{ user.endereco }}</td>
+            <td data-th="UF">{{ user.nome }}</td>
+            <td data-th="UF">{{ user.senha }}</td>
+            <td data-th="UF">{{ user.telefone }}</td>
+            <td data-th="UF">{{ user.tipo }}</td>
+            <td data-th="Ações" class="sm-column">
+              <button
+                type="button"
+                class="btn btn-info m-1"
+                (click)="edit(user)"
+              >
+                <i class="bi bi-pencil mr-1"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger m-1"
+                (click)="delete(user.id)"
+              >
+                <i class="bi bi-trash mr-1"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="users.length == 0">
+            <td colspan="8">Nenhum Registro Encontrado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

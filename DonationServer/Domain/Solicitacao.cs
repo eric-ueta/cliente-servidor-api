@@ -14,7 +14,7 @@ namespace DonationServer.Domain
 
         public int ReceptorId { get; set; }
 
-        public int Status { get; set; }
+        public bool Status { get; set; }
 
         [JsonPropertyName("tipo_doacao")]
         public string TipoDoacao { get; set; }
