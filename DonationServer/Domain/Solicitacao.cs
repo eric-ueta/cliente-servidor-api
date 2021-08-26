@@ -8,11 +8,11 @@ namespace DonationServer.Domain
 
         public string Data { get; set; }
 
-        public int DoacaoId { get; set; }
+        public int? DoacaoId { get; set; }
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
-        public int ReceptorId { get; set; }
+        public int? ReceptorId { get; set; }
 
         public bool Status { get; set; }
 

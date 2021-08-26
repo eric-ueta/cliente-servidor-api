@@ -19,7 +19,7 @@ namespace DonationServer.Domain
 
         public string Endereco { get; set; }
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public string Nome { get; set; }
 
